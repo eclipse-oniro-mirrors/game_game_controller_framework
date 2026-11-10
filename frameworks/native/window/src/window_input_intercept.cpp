@@ -98,9 +98,7 @@ WindowInputInterceptConsumer::WindowInputInterceptConsumer() noexcept
 void WindowInputInterceptConsumer::OnInputEvent(const std::shared_ptr<MMI::KeyEvent> &keyEvent)
 {
     HILOGD("OnKeyEvent is %{private}s", keyEvent->ToString().c_str());
-    if (IsNotifyOpenTemplateConfigPage(keyEvent)) {
-        return;
-    }
+    IsNotifyOpenTemplateConfigPage(keyEvent);
     if (DelayedSingleton<KeyToTouchManager>::GetInstance()->DispatchKeyEvent(keyEvent)) {
         return;
     }
@@ -357,9 +355,9 @@ GamePadAxisEvent WindowInputInterceptConsumer::BuildGamePadAxisEvent(const int32
     return axisEvent;
 }
 
-bool WindowInputInterceptConsumer::IsNotifyOpenTemplateConfigPage(const std::shared_ptr<MMI::KeyEvent> &keyEvent)
+void WindowInputInterceptConsumer::IsNotifyOpenTemplateConfigPage(const std::shared_ptr<MMI::KeyEvent> &keyEvent)
 {
-    return DelayedSingleton<KeyMappingHandle>::GetInstance()->IsNotifyOpenTemplateConfigPage(keyEvent);
+    DelayedSingleton<KeyMappingHandle>::GetInstance()->IsNotifyOpenTemplateConfigPage(keyEvent);
 }
 
 bool WindowInputInterceptConsumer::IsDeviceHasProcessedKeys(const int32_t deviceId)
