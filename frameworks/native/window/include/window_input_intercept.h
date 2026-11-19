@@ -145,7 +145,7 @@ private:
      * Indicates whether notify open template page.
      * @param keyEvent Key Event
      */
-    void NotifyOpenTemplateConfigPage(const std::shared_ptr<MMI::KeyEvent> &keyEvent);
+    bool IsNotifyOpenTemplateConfigPage(const std::shared_ptr<MMI::KeyEvent> &keyEvent);
 
     /**
      * Checks whether the device has already processed known gamepad keys.

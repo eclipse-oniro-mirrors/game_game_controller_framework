@@ -67,7 +67,6 @@ bool KeyMappingHandle::OpenTemplateByGamePad(const std::shared_ptr<MMI::KeyEvent
     if (keyEvent->GetKeyCode() == OHOS::GameController::ButtonMenu) {
         HILOGI("Open template config page by GamePad Start button.");
         DelayedSingleton<KeyMappingService>::GetInstance()->BroadcastOpenTemplateConfig(deviceInfo);
-        return true;
     }
     return false;
 }
