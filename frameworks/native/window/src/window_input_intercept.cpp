@@ -357,7 +357,7 @@ GamePadAxisEvent WindowInputInterceptConsumer::BuildGamePadAxisEvent(const int32
     return axisEvent;
 }
 
-bool WindowInputInterceptConsumer::NotifyOpenTemplateConfigPage(const std::shared_ptr<MMI::KeyEvent> &keyEvent)
+bool WindowInputInterceptConsumer::IsNotifyOpenTemplateConfigPage(const std::shared_ptr<MMI::KeyEvent> &keyEvent)
 {
     return DelayedSingleton<KeyMappingHandle>::GetInstance()->IsNotifyOpenTemplateConfigPage(keyEvent);
 }
